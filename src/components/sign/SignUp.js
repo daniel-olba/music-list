@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions";
+
 import {
   Row,
   Col,
@@ -23,7 +26,7 @@ class SignUp extends Component {
               Sign up with your email address
             </Col>
           </Row>
-          <Form>
+          <Form onSubmit={this._onSubmit}>
             <Row>
               <Col xs={12}>
                 <FormGroup>
@@ -71,6 +74,31 @@ class SignUp extends Component {
       </div>
     )
   }
+
+  _onSubmit = event => {
+    event.preventDefault();
+    let formData = {};
+    if (event.target.email.value === ''){
+      window.alert('Please use a email')
+    } else if (event.target.password.value === '') {
+      window.alert('Please use a password')
+    } else if (event.target.username.value === '') {
+      window.alert('Please use a username')
+    } else {
+      formData.email = event.target.email.value;
+      formData.password = event.target.password.value;
+      formData.name = event.target.username.value;
+      this.props.signup(formData, (data) => {
+        this.props.signin(data, () => {
+          this.props.history.push('/home');
+        });
+      });
+    }
+  }
+
 }
 
-export default SignUp;
+export default connect(
+  null,
+  actions
+)(SignUp);

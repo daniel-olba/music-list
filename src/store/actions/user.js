@@ -33,7 +33,7 @@ export const signin = (data, callback, erroCallback) => dispatch => {
           type,
           payload: response.data
         });
-        setToken(response.data);
+        setToken(response.data.token);
         if (callback) callback(response.data);
       },
       (type, error) => {
