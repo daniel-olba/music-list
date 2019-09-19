@@ -1,0 +1,24 @@
+@import "../../node_modules/bootstrap/scss/bootstrap", "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css", "../styles/navBar";
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto","Helvetica Neue", sans-serif;
+  background-blend-mode: multiply;
+  background-image: linear-gradient(to bottom, rgb(67, 198, 172) ,rgb(25, 22, 84));
+
+  #root {
+    .app {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+
+      .body {
+        flex: auto;
+        flex-direction: column;
+        display: flex;
+      }
+    }
+  }
+}
