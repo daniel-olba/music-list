@@ -1,53 +1,61 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { compose } from "redux";
 import * as actions from "../store/actions";
-import { Link, NavLink } from "react-router-dom";
-import { withRouter } from "react-router";
+import { NavLink } from "react-router-dom";
 
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
-  NavItem
+  NavItem,
+  Container
 } from "reactstrap";
 
 class NavigationBar extends Component {
   state = {
-    isOpen: true,
+    isOpen: false,
   };
 
   render() {
     return (
-      <section className="navigation fixed-left">
-        <Navbar color="light" expand="md">
-          <NavbarBrand>
-            <NavLink to="/">
-              Music List
-            </NavLink>
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto align-items-center" navbar>
-              <NavItem>
-                <NavLink activeClassName="active__link" to="/home">
-                  Home
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink activeClassName="active__link" to="/search">
-                  Search
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink activeClassName="active__link" to="/favorites">
-                  Favorites
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
+      <section className="navbar-fixed-left">
+        <Navbar expand="md">
+          <Container>
+            <NavLink className="navbar-header" to="/">Music List</NavLink>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" vertical>
+                <NavItem>
+                  <NavLink activeClassName="active__link" to="/home">
+                    Home
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink activeClassName="active__link" to="/search">
+                    Search
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink activeClassName="active__link" to="/favorites">
+                    Favorites
+                  </NavLink>
+                </NavItem>
+              </Nav>
+              <Nav className="fixed-bottom" vertical>
+                <NavItem>
+                  <NavLink activeClassName="active__link" to="/login">
+                    Login
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink activeClassName="active__link" to="/signup">
+                    Register
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Container>
         </Navbar>
       </section>
     )
@@ -66,10 +74,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default compose(
-  connect(
-    mapStateToProps,
-    actions
-  ),
-  withRouter
+export default connect(
+  mapStateToProps,
+  actions
 )(NavigationBar);
