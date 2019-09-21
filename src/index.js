@@ -7,6 +7,7 @@ import Search from "./components/search/Search";
 import Login from "./components/sign/Login";
 import SignUp from "./components/sign/SignUp";
 import Favorites from "./components/songs/Favorites";
+import Song from "./components/songs/Song";
 
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
@@ -40,6 +41,7 @@ ReactDOM.render(
           <Route path="/favorites" component={Favorites} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/song" component={Song}/>
         </Switch>
       </App>
     </BrowserRouter>

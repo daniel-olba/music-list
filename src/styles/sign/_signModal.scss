@@ -1,0 +1,77 @@
+.modal {
+  top: 25%;
+
+  .modal-content {
+    border-radius: 1rem;
+    border: none;
+    background-image: linear-gradient(to right bottom, rgb(83, 105, 118), rgb(41, 46, 73));
+
+    .modal-body {
+      padding: 2rem;
+    }
+  }
+}
+
+.sign-text {
+  display: flex;
+  align-items: center;
+
+  h3 {
+    color: white;
+  }
+}
+
+.sign-card {
+  border: none;
+  height: 100%;
+  border-radius: 1rem;
+
+  .signup-section {
+    .signup-btn {
+      width: 100%;
+      border-radius: 20px;
+      background-color: #155799;
+      border-color: #155799;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 8px 0;
+
+      &:hover {
+        background-color: #1c73ca;
+        border-color: #1c73ca;
+      }
+    }
+  }
+
+  .login-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+
+    .login-text {
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .login-btn {
+      margin-top: 5px;
+      width: 100%;
+      border-radius: 20px;
+      background-color: transparent;
+      color: #155799;
+      border: 1.4px solid #155799;
+      letter-spacing: 1.5px;
+      padding: 8px 0;
+
+      &:hover {
+        background-color: #1c73ca;
+        border-color: #1c73ca;
+        color: white;
+      }
+    }
+
+
+  }
+}

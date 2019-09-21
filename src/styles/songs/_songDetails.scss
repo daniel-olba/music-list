@@ -1,0 +1,24 @@
+.song-details {
+  .details-row {
+    padding-top: 40px;
+  }
+}
+
+@media(max-width: 767px) {
+  .song-details {
+    .details-row {
+      img {
+        width: 50%;
+        display: flex;
+        margin: auto;
+        padding-bottom: 20px;
+      }
+
+      .details-text {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  }
+}

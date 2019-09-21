@@ -2,8 +2,20 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import NavigationBar from "../NavigationBar";
+import List from "../songs/List";
 import * as actions from "../../store/actions";
 
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  Container,
+  Button,
+  Row,
+  Col
+} from "reactstrap";
 
 class Home extends Component{
   state = {
@@ -14,21 +26,16 @@ class Home extends Component{
     let { isLoading } = this.state;
     let { songs } = this.props;
     return (
-      <div>
-        <NavigationBar/>
-        {!isLoading ? (
-          // songs.map(song => {
-          //   return (
-          //     <p>Hello World</p>
-          //   )
-          // })
-          <div className="container-fluid">
-            Home
-          </div>
-        ) : (
-          <h5>Loading ...</h5>
-        )}
-      </div>
+      <Row className="content">
+        <Col lg={2} md={2} sm={12} className="home-navbar"><NavigationBar/></Col>
+        <Col lg={10} md={10} sm={12} className="home-list">
+          {!isLoading ? (
+            <List songs={songs}/>
+          ) : (
+            <h5>Loading ...</h5>
+          )}
+        </Col>
+      </Row>
     );
   }
 

@@ -9,7 +9,8 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  Container
+  Container,
+  Button
 } from "reactstrap";
 
 class NavigationBar extends Component {
@@ -20,37 +21,37 @@ class NavigationBar extends Component {
   render() {
     return (
       <section className="navbar-fixed-left">
-        <Navbar expand="md">
+        <Navbar expand="md" dark>
           <Container>
-            <NavLink className="navbar-header" to="/">Music List</NavLink>
-            <NavbarToggler onClick={this.toggle} />
+            <NavLink className="navbar-header" to="/"><i className="fas fa-compact-disc"/> Music List</NavLink>
+            <NavbarToggler onClick={() => { this.toggle() }} />
             <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" vertical>
+              <Nav className="navbar-top-links">
                 <NavItem>
                   <NavLink activeClassName="active__link" to="/home">
-                    Home
+                    <i className="fas fa-home"/> Home
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink activeClassName="active__link" to="/search">
-                    Search
+                    <i className="fas fa-search"/> Search
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink activeClassName="active__link" to="/favorites">
-                    Favorites
+                    <i className="fas fa-bookmark"/> Favorites
                   </NavLink>
                 </NavItem>
               </Nav>
-              <Nav className="fixed-bottom" vertical>
+              <Nav className="navbar-bottom-links">
                 <NavItem>
                   <NavLink activeClassName="active__link" to="/login">
-                    Login
+                    <Button className="login-btn">Login</Button>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink activeClassName="active__link" to="/signup">
-                    Register
+                    <Button className="signup-btn">Register</Button>
                   </NavLink>
                 </NavItem>
               </Nav>

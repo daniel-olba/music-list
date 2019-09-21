@@ -1,5 +1,5 @@
-@import "../../node_modules/bootstrap/scss/bootstrap", "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-"../styles/navBar", "../styles/sign/login", "sign/signup";
+@import "../../node_modules/bootstrap/scss/bootstrap", "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css", "home",
+"navBar", "sign/login", "sign/signup", "songs/list", "songs/songDetails", "sign/signModal";
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
 body {

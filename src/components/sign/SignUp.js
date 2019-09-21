@@ -19,7 +19,7 @@ class SignUp extends Component {
   render() {
     return(
       <div className="signup">
-        <div className="signup-header"><h1>Music List</h1></div>
+        <div className="signup-header"><h1><i className="fas fa-compact-disc"/> Music List</h1></div>
         <div className="content">
           <Row className="signup-text text-center">
             <Col xs={12}>

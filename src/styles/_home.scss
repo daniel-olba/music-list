@@ -1,0 +1,25 @@
+@media(min-width: 768px) {
+  .row {
+    margin: 0;
+    .home-navbar {
+      margin-left: -15px;
+    }
+
+    .home-list {
+      padding-right: 0;
+      padding-left: 70px;
+
+      .list-content {
+        .row {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .row {
+    margin-right: -15px;
+  }
+}

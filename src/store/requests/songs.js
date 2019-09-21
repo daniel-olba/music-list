@@ -7,3 +7,13 @@ export const getSongs = {
     }
   }
 };
+
+export const getDetails = {
+  type: "GET_DETAILS",
+  payload: {
+    request: {
+      method: "get",
+      url: "/songs/:id"
+    }
+  }
+};
