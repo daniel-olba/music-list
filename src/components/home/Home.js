@@ -6,13 +6,6 @@ import List from "../songs/List";
 import * as actions from "../../store/actions";
 
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-  Container,
-  Button,
   Row,
   Col
 } from "reactstrap";

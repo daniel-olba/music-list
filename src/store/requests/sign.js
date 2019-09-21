@@ -17,3 +17,13 @@ export const signup = {
         }
     }
 };
+
+export const user = {
+    type: "USER",
+    payload: {
+        request: {
+            method: "get",
+            url: "users/me"
+        }
+    }
+};

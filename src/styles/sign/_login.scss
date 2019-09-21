@@ -42,6 +42,11 @@
     }
 
     .signup-section {
+
+      hr {
+        border-color: rgba(0, 0, 0, 0.4);
+      }
+
       .signup-text {
         font-weight: bold;
         margin-top: 25px;

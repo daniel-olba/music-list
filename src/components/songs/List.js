@@ -25,7 +25,7 @@ class List extends Component{
           {songs.map(song => {
             return (
               <Col xs={12} lg={12}>
-                <i className="fas fa-music"/>
+                <i className="fas fa-music"/> &nbsp;
                 <a
                   onClick={() => this._songDetails(song.id)}
                   style={{ cursor: 'pointer' }}

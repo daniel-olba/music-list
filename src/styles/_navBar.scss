@@ -67,19 +67,28 @@
       .navbar-header {
         padding-bottom: 20px;
         font-size: 30px;
+
+        .navbar-welcome {
+          font-size: 20px;
+          margin-top: 10px;
+        }
       }
 
       .navbar-collapse {
         flex-direction: column;
+        height: 80vh;
 
         .navbar-top-links {
           .nav-item {
             padding: 10px 10px 10px 0;
-
-            &:hover {
-              border-right: solid 2px #155799;
-            }
           }
+        }
+
+        .navbar-bottom-links {
+          flex-direction: column-reverse;
+          width: 200%;
+          margin: auto;
+          height: 50%;
         }
       }
 
@@ -94,6 +103,10 @@
 @media (max-width: 767px) {
   .navbar-fixed-left {
     .container {
+
+      .navbar-header {
+        font-size: 20px;
+      }
 
       .navbar-collapse {
         .navbar-top-links {

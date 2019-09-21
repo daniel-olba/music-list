@@ -43,6 +43,11 @@
     }
 
     .login-section {
+
+      hr {
+        border-color: rgba(0, 0, 0, 0.4);
+      }
+
       .login-text {
         margin-top: 25px;
         font-size: 17px;

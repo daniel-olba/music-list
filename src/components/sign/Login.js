@@ -50,7 +50,7 @@ class Login extends Component {
           <div className="signup-section text-center">
             <Row>
               <Col xs={12}>
-                <hr/>
+                <hr style={{color: 'rgba(0, 0, 0, 0.4)'}}/>
               </Col>
             </Row>
             <Row className="signup-text">
@@ -84,7 +84,9 @@ class Login extends Component {
       formData.email = event.target.email.value;
       formData.password = event.target.password.value;
       this.props.signin(formData, () => {
-        this.props.history.push('/home');
+        this.props.user(() => {
+          this.props.history.push('/home');
+        });
       });
     }
   }

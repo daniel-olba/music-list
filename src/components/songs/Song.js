@@ -15,8 +15,8 @@ class Song extends Component{
 
   render() {
     let { isLoading } = this.state;
-    let { userData, songDetails } = this.props;
-    let { imgUrl, title, artist, year, webUrl } = songDetails;
+    let { userData, songDetails, favorites } = this.props;
+    let { imgUrl, title, artist, year, webUrl, id } = songDetails;
 
     return(
       <Row className="content">
@@ -34,18 +34,39 @@ class Song extends Component{
                     <p>By {artist} - {year}</p>
                   </Col>
                   <Col xs={12} className="details-text">
-                    <i
-                      className="far fa-heart"
-                      onClick={() => {
-                        if (!userData) {
-                          this.signModal.current._toggleModal();
-                        }
-                      }}
-                    />
+                    {!userData ? (
+                      <i
+                        className="far fa-heart"
+                        onClick={() => { this.signModal.current._toggleModal() }}
+                      />
+                    ) : (
+                      favorites.length === 0 ? (
+                        <i
+                          className="far fa-heart"
+                          onClick={() => {
+                            let formData = {
+                              songId: id
+                            };
+                            this._setIsLoading(true);
+                            this.props.addFavorite(formData, () => {
+                              this.props.getFavorites(this._setIsLoading)
+                            });
+                          }}
+                        />
+                      ) : (
+                        this._setFavIcon(favorites)
+                      )
+                    )}
+                    <p>For more details visit: <a href={webUrl}>{webUrl}</a></p>
                   </Col>
                 </Row>
               </Col>
-              {!userData && (<SignModal ref={this.signModal}/>)}
+              {!userData && (
+                <SignModal
+                  ref={this.signModal}
+                  login={() => { this.props.history.push('/login') }}
+                  signup={() => { this.props.history.push('/signup') }}
+                />)}
             </Row>
           ) : (
             <h5>Loading ...</h5>
@@ -54,6 +75,44 @@ class Song extends Component{
       </Row>
     )
   }
+
+  _setFavIcon = data => {
+    let { id } = this.props.songDetails;
+    let favs = data.filter(fav => {
+      return fav.songId === id;
+    });
+    if (favs.length !== 0) {
+      return (
+        <i
+          className="fas fa-heart"
+          onClick={() => {
+            let formData = {
+              songId: id
+            };
+            this._setIsLoading(true);
+            this.props.deleteFavorite(formData, () => {
+              this.props.getFavorites(this._setIsLoading)
+            });
+          }}
+        />
+      )
+    } else {
+      return (
+        <i
+          className="far fa-heart"
+          onClick={() => {
+            let formData = {
+              songId: id
+            };
+            this._setIsLoading(true);
+            this.props.addFavorite(formData, () => {
+              this.props.getFavorites(this._setIsLoading)
+            });
+          }}
+        />
+      )
+    }
+  };
 
   _setIsLoading = (boolean = false) => {
     this.setState(
@@ -65,6 +124,8 @@ class Song extends Component{
 
   componentDidMount() {
     let id = this.props.location.state.id;
+    let { userData } = this.props;
+    {userData && this.props.getFavorites()}
     this.props.getDetails(id, this._setIsLoading);
   }
 }
@@ -72,7 +133,8 @@ class Song extends Component{
 function mapStateToProps(state) {
   return {
     songDetails: state.songDetails.getDetailsSuccess,
-    userData: state.signin.signinSuccess
+    userData: state.user.userSuccess,
+    favorites: state.favorites.getFavoritesSuccess
   };
 }
 

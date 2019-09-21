@@ -90,7 +90,9 @@ class SignUp extends Component {
       formData.name = event.target.username.value;
       this.props.signup(formData, (data) => {
         this.props.signin(data, () => {
-          this.props.history.push('/home');
+          this.props.user(() => {
+            this.props.history.push('/home');
+          });
         });
       });
     }

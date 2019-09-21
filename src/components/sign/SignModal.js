@@ -8,7 +8,6 @@ import {
   Col,
   Button,
   Modal,
-  ModalHeader,
   ModalBody
 } from "reactstrap";
 
@@ -37,18 +36,14 @@ class SignModal extends Component {
                     <Row>
                       <Col xs={12} className="signup-section">
                         <Button
-                          onClick={() => {
-                            this.props.history.push('/signup')
-                          }}
+                          onClick={() => { this.props.signup() }}
                           className="signup-btn"
                         >REGISTER FREE</Button>
                       </Col>
                       <Col xs={12} className="login-section">
                         <span className="login-text">Already have an account?</span>
                         <Button
-                          onClick={() => {
-                            this.props.history.push('/login')
-                          }}
+                          onClick={() => { this.props.login() }}
                           className="login-btn">LOG IN</Button>
                       </Col>
                     </Row>

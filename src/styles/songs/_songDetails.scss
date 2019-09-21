@@ -1,6 +1,21 @@
 .song-details {
   .details-row {
     padding-top: 40px;
+
+    .details-text {
+      i {
+        font-size: 25px;
+      }
+
+      p {
+        margin-top: 10px;
+      }
+
+      a {
+        color: white;
+        cursor: pointer;
+      }
+    }
   }
 }
 

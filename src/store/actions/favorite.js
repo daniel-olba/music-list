@@ -1,17 +1,16 @@
 import Interceptor from "../Interceptor";
-import { setToken } from "../../Cookies";
 
-export const signup = (data, callback, erroCallback) => async dispatch => {
+export const getFavorites = (callback, erroCallback) => async dispatch => {
   return dispatch(
     Interceptor(
-      { action: "signup", data },
+      { action: "getFavorites" },
       (type, response) => {
         dispatch({
           type,
           payload: response.data
         });
 
-        if (callback) callback(response.data);
+        if (callback) callback();
       },
       (type, error) => {
         dispatch({
@@ -24,16 +23,15 @@ export const signup = (data, callback, erroCallback) => async dispatch => {
   );
 };
 
-export const signin = (data, callback, erroCallback) => dispatch => {
+export const addFavorite = (data, callback, erroCallback) => dispatch => {
   return dispatch(
     Interceptor(
-      { action: "signin", data },
+      { action: "addFavorite", data },
       (type, response) => {
         dispatch({
           type,
           payload: response.data
         });
-        setToken(response.data.token);
         if (callback) callback();
       },
       (type, error) => {
@@ -48,23 +46,23 @@ export const signin = (data, callback, erroCallback) => dispatch => {
   );
 };
 
-export const user = (callback, erroCallback) => async dispatch => {
+export const deleteFavorite = (data, callback, erroCallback) => dispatch => {
   return dispatch(
     Interceptor(
-      { action: "user"},
+      { action: "deleteFavorite", data },
       (type, response) => {
         dispatch({
           type,
           payload: response.data
         });
-
-        callback();
+        if (callback) callback();
       },
       (type, error) => {
         dispatch({
           type,
           payload: error
         });
+
         if (erroCallback) erroCallback(error);
       }
     )
