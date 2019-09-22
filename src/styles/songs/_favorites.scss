@@ -1,0 +1,45 @@
+.fav-details-row {
+  padding-top: 20px;
+
+  .fav-details-text {
+    i {
+      font-size: 25px;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+
+    a {
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+@media(min-width: 769px) {
+  .fav-details-row {
+    img {
+      width: 100%;
+      display: flex;
+      margin: auto;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  .fav-details-row {
+    img {
+      display: flex;
+      margin: auto;
+      padding-bottom: 20px;
+    }
+
+    .fav-details-text {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}

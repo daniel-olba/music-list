@@ -21,5 +21,11 @@
 @media (max-width: 767px) {
   .row {
     margin-right: -15px;
+
+    .home-list {
+      .list-content {
+        margin-left: 15px;
+      }
+    }
   }
 }

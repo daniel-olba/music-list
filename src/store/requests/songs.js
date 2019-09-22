@@ -8,6 +8,16 @@ export const getSongs = {
   }
 };
 
+export const getSongsSearch = {
+  type: "GET_SONGS_SEARCH",
+  payload: {
+    request: {
+      method: "get",
+      url: "/songs"
+    }
+  }
+};
+
 export const getDetails = {
   type: "GET_DETAILS",
   payload: {

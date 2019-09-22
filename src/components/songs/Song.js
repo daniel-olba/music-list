@@ -57,7 +57,7 @@ class Song extends Component{
                         this._setFavIcon(favorites)
                       )
                     )}
-                    <p>For more details visit: <a href={webUrl}>{webUrl}</a></p>
+                      <p>More details <a href={webUrl} target="_blank">here</a></p>
                   </Col>
                 </Row>
               </Col>

@@ -4,7 +4,7 @@ import * as actions from "../../store/actions";
 
 import NavigationBar from "../NavigationBar";
 import {Col, Row} from "reactstrap";
-import FavList from "./FavList";
+import FavSong from "./FavSong";
 
 class Favorites extends Component{
   state = {
@@ -20,7 +20,11 @@ class Favorites extends Component{
         <Col lg={2} md={2} sm={12} className="home-navbar"><NavigationBar/></Col>
         <Col lg={10} md={10} sm={12} className="home-list">
           {!isLoading ? (
-            <FavList favs={favorites}/>
+            <section className="list-content">
+              <Row>
+                {this._setFavSongs(favorites)}
+              </Row>
+            </section>
           ) : (
             <h5>Loading ...</h5>
           )}
@@ -29,8 +33,31 @@ class Favorites extends Component{
     );
   }
 
+  _setFavSongs = data => {
+    let favs = [];
+    data.map(fav => {
+      favs.push(
+        <Col xs={12} lg={12}>
+          <FavSong
+            details={fav}
+            deleteFav={() => {
+              let formData = {
+                songId: fav.songId
+              };
+              this._setIsLoading(true);
+              this.props.deleteFavorite(formData, () => {
+                this.props.getFavorites(this._setIsLoading)
+              });
+            }}
+          />
+        </Col>
+      )
+    });
+    return favs;
+  };
+
   componentDidMount() {
-    this.props.getFavorites(this._setIsLoading)
+    !this.props.userData ? this.props.history.push('/home') : this.props.getFavorites(this._setIsLoading)
   }
 
   _setIsLoading = (boolean = false) => {
@@ -44,6 +71,7 @@ class Favorites extends Component{
 
 function mapStateToProps(state) {
   return {
+    userData: state.user.userSuccess,
     favorites: state.favorites.getFavoritesSuccess
   };
 }

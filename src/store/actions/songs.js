@@ -23,6 +23,32 @@ export const getSongs = (callback, erroCallback) => async dispatch => {
   );
 };
 
+export const getSongsSearch = (query, sort = 'artist', callback, erroCallback) => async dispatch => {
+  return dispatch(
+    Interceptor(
+      {
+        action: "getSongsSearch",
+        parameters: `_sort=${sort}` + (query ? `&q=${query}` : '')
+      },
+      (type, response) => {
+        dispatch({
+          type,
+          payload: response.data
+        });
+
+        callback();
+      },
+      (type, error) => {
+        dispatch({
+          type,
+          payload: error
+        });
+        if (erroCallback) erroCallback(error);
+      }
+    )
+  );
+};
+
 export const getDetails = (id, callback, errorCallback) => async dispatch => {
   return dispatch(
     Interceptor({

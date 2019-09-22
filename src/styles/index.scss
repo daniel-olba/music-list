@@ -1,5 +1,5 @@
 @import "../../node_modules/bootstrap/scss/bootstrap", "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css", "home",
-"navBar", "sign/login", "sign/signup", "songs/list", "songs/songDetails", "sign/signModal";
+"navBar", "sign/login", "sign/signup", "songs/list", "songs/songDetails", "sign/signModal", "songs/favorites", "search/search";
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
 body {
@@ -7,7 +7,7 @@ body {
   padding: 0;
   font-family: "Roboto","Helvetica Neue", sans-serif;
   background-blend-mode: multiply;
-  background-image: linear-gradient(to right bottom, rgb(67, 198, 172) ,rgb(25, 22, 84));
+  background-image: linear-gradient(to right bottom, rgb(12, 129, 192) , rgb(81, 200, 186));
 
   #root {
     .app {
