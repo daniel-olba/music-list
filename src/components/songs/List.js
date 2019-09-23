@@ -31,8 +31,8 @@ class List extends Component{
                   style={{ cursor: 'pointer' }}
                 >
                   <strong>{song.title}</strong>
+                  <p>{song.artist}</p>
                 </a>
-                <p>{song.artist}</p>
               </Col>
             )
           })}

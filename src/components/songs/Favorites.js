@@ -20,13 +20,22 @@ class Favorites extends Component{
         <Col lg={2} md={2} sm={12} className="home-navbar"><NavigationBar/></Col>
         <Col lg={10} md={10} sm={12} className="home-list">
           {!isLoading ? (
-            <section className="list-content">
-              <Row>
-                {this._setFavSongs(favorites)}
-              </Row>
-            </section>
+            favorites.length !== 0 ? (
+              <section className="list-content">
+                <Row>
+                  {this._setFavSongs(favorites)}
+                </Row>
+              </section>
+            ) : (
+              <div className="fav-no-results">
+                <h5>You don't have any songs added to your favorites</h5>
+                <p>To add one go to the home page</p>
+              </div>
+            )
           ) : (
-            <h5>Loading ...</h5>
+            <div className="fav-loading">
+              <h5>Loading ...</h5>
+            </div>
           )}
         </Col>
       </Row>

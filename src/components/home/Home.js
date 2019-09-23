@@ -25,7 +25,9 @@ class Home extends Component{
           {!isLoading ? (
             <List songs={songs}/>
           ) : (
-            <h5>Loading ...</h5>
+            <div className="home-loading">
+              <h5>Loading ...</h5>
+            </div>
           )}
         </Col>
       </Row>

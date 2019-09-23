@@ -70,8 +70,13 @@ class Search extends Component{
           <Col xs={12} lg={8} md={8}>
             <Row>
               <Col xs={12} className="search-details-text">
-                <h2 style={{ fontWeight: 'bold' }}>{title}</h2>
-                <p>By {artist} - {year}</p>
+                <a
+                  onClick={() => this._songDetails(song.id)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <h2 style={{ fontWeight: 'bold' }}>{title}</h2>
+                  <p>By {artist} - {year}</p>
+                </a>
               </Col>
             </Row>
           </Col>
@@ -100,6 +105,10 @@ class Search extends Component{
       }
     )
   };
+
+  _songDetails = id => {
+    this.props.history.push("/song", { id });
+  }
 }
 
 function mapStateToProps(state) {

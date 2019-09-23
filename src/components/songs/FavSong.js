@@ -10,8 +10,7 @@ class FavSong extends Component{
   };
 
   render() {
-    // let { isLoading } = this.state;
-    let { songs, details } = this.props;
+    let { details } = this.props;
 
     return(
       <div>
@@ -25,7 +24,6 @@ class FavSong extends Component{
       return song.id === data.songId
     });
     let { imgUrl, title, artist, year, webUrl, id } = details[0];
-    console.log(details[0]);
     return (
       <Row className="fav-details-row">
         <Col xs={12} lg={3} md={3} style={{display: 'flex'}}>
@@ -47,18 +45,6 @@ class FavSong extends Component{
           </Row>
         </Col>
       </Row>
-    )
-  };
-
-  // componentDidMount() {
-  //   this.props.getDetails(this.props.details.songId, this._setIsLoading)
-  // }
-  //
-  _setIsLoading = (boolean = false) => {
-    this.setState(
-      {
-        isLoading: boolean
-      }
     )
   };
 }
