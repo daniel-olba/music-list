@@ -1,9 +1,9 @@
 export const getToken = () => {
-  return getCookie("access_token");
+  return getCookie("bearer_token");
 };
 
 export const setToken = (token) => {
-  document.cookie = `access_token=${token}`;
+  document.cookie = `bearer_token=${token}`;
 };
 
 const getCookie = cname => {

@@ -110,12 +110,16 @@
 
       .navbar-collapse {
         .navbar-top-links {
+          justify-content: space-evenly;
+
           .nav-item {
             margin: 10px 20px 10px 0;
           }
         }
 
         .navbar-bottom-links {
+          justify-content: space-evenly;
+          margin-top: 10px;
           .nav-item {
             margin-right: 20px;
 
