@@ -1,4 +1,10 @@
 .song-details {
+  .details-loading {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+  }
+
   .details-row {
     padding-top: 40px;
 

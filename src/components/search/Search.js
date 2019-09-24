@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import List from "../songs/List";
 import SignModal from "../sign/SignModal";
+import Loader from "react-loader-spinner";
 
 class Search extends Component{
   state = {
@@ -50,7 +51,13 @@ class Search extends Component{
             )
           ) : (
             <div className="search-loading">
-              <h5>Loading ...</h5>
+              <Loader
+                type="ThreeDots"
+                color="#212529"
+                height={100}
+                width={100}
+                timeout={3000}
+              />
             </div>
           )}
         </Col>

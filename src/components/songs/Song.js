@@ -5,6 +5,7 @@ import * as actions from "../../store/actions";
 import NavigationBar from "../NavigationBar";
 import SignModal from "../sign/SignModal";
 import {Col, Row} from "reactstrap";
+import Loader from "react-loader-spinner";
 
 class Song extends Component{
   state = {
@@ -69,7 +70,15 @@ class Song extends Component{
                 />)}
             </Row>
           ) : (
-            <h5>Loading ...</h5>
+            <div className="details-loading">
+              <Loader
+                type="ThreeDots"
+                color="#212529"
+                height={100}
+                width={100}
+                timeout={3000}
+              />
+            </div>
           )}
         </Col>
       </Row>

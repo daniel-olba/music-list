@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actions from "../../store/actions";
 
 import NavigationBar from "../NavigationBar";
 import List from "../songs/List";
-import * as actions from "../../store/actions";
+import Loader from 'react-loader-spinner';
 
 import {
   Row,
@@ -26,7 +27,13 @@ class Home extends Component{
             <List songs={songs}/>
           ) : (
             <div className="home-loading">
-              <h5>Loading ...</h5>
+              <Loader
+                type="ThreeDots"
+                color="#212529"
+                height={100}
+                width={100}
+                timeout={3000}
+              />
             </div>
           )}
         </Col>

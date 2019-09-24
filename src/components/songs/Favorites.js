@@ -5,6 +5,7 @@ import * as actions from "../../store/actions";
 import NavigationBar from "../NavigationBar";
 import {Col, Row} from "reactstrap";
 import FavSong from "./FavSong";
+import Loader from "react-loader-spinner";
 
 class Favorites extends Component{
   state = {
@@ -34,7 +35,13 @@ class Favorites extends Component{
             )
           ) : (
             <div className="fav-loading">
-              <h5>Loading ...</h5>
+              <Loader
+                type="ThreeDots"
+                color="#212529"
+                height={100}
+                width={100}
+                timeout={3000}
+              />
             </div>
           )}
         </Col>
